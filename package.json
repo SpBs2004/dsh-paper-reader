@@ -1,0 +1,86 @@
+{
+  "name": "dsh-paper-reader",
+  "version": "0.2.0",
+  "private": true,
+  "description": "论文阅读器：论文库、章节大纲、KaTeX 公式、中英对照、选中提问、笔记与审稿材料",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpBs2004/dsh-paper-reader.git"
+  },
+  "homepage": "https://github.com/SpBs2004/dsh-paper-reader#readme",
+  "bugs": {
+    "url": "https://github.com/SpBs2004/dsh-paper-reader/issues"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "client.js",
+    "vendor",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "scripts": {
+    "sync:pdfjs": "node scripts/sync-pdfjs.mjs",
+    "build:client": "node build.mjs",
+    "build": "node scripts/sync-pdfjs.mjs && node build.mjs",
+    "test": "node --test",
+    "make:demo": "node scripts/make-demo-pdf.mjs",
+    "smoke:pdf": "node scripts/browser-smoke.mjs",
+    "smoke:ui": "node scripts/ui-smoke.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "cordis",
+    "paper",
+    "reader",
+    "latex",
+    "pdf"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    },
+    "marketplace": {
+      "profiles": [
+        "web"
+      ],
+      "requiresBuildApproval": false,
+      "requiresRestart": true,
+      "manualSteps": false
+    }
+  },
+  "dependencies": {
+    "pdfjs-dist": "4.10.38"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-test-renderer": "^19.2.0"
+  }
+}

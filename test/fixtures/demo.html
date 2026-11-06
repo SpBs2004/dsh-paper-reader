@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>A Differential-Inclusion Algorithm for Nonsmooth Convex Resource Allocation</title>
+<style>
+  @page { size: A4; margin: 19mm 21mm 17mm; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Times New Roman", Times, "Nimbus Roman", serif;
+    font-size: 10.6pt;
+    line-height: 1.42;
+    color: #111;
+    text-rendering: geometricPrecision;
+  }
+  .demo-note {
+    text-align: right;
+    font-size: 8pt;
+    letter-spacing: .04em;
+    color: #666;
+    margin: 0 0 10pt;
+  }
+  h1 {
+    font-size: 17pt;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 700;
+    margin: 0 0 9pt;
+  }
+  .authors { text-align: center; font-size: 11pt; margin: 0 0 2pt; }
+  .affil { text-align: center; font-size: 9pt; color: #333; margin: 0 0 13pt; }
+  .abstract { font-size: 9.5pt; text-align: justify; margin: 0 0 7pt; }
+  .abstract b { font-variant: small-caps; letter-spacing: .02em; }
+  .keywords { font-size: 9pt; text-align: justify; margin: 0 0 13pt; }
+  h2 {
+    font-variant: small-caps;
+    font-size: 11pt;
+    letter-spacing: .03em;
+    margin: 13pt 0 4pt;
+  }
+  p { margin: 0 0 5pt; text-align: justify; }
+  .equation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10pt;
+    margin: 8pt 0;
+    font-style: italic;
+  }
+  .equation .num { font-style: normal; color: #222; }
+  .thm { margin: 6pt 0 5pt; text-align: justify; }
+  .thm b { font-variant: small-caps; }
+  .refs { font-size: 8.8pt; }
+  .refs p { margin: 0 0 2.5pt; padding-left: 14pt; text-indent: -14pt; text-align: left; }
+  .pagebreak { page-break-after: always; }
+</style>
+</head>
+<body>
+
+<section class="pagebreak">
+  <p class="demo-note">DEMO DOCUMENT · ILLUSTRATIVE CONTENT FOR dsh-paper-reader</p>
+
+  <h1>A Differential-Inclusion Algorithm for Nonsmooth Convex Resource Allocation</h1>
+  <p class="authors">Demo Author<sup>1</sup> &nbsp;·&nbsp; Second Author<sup>2</sup></p>
+  <p class="affil"><sup>1</sup> Demo Institute of Technology &nbsp;&nbsp; <sup>2</sup> Example Research Center</p>
+
+  <p class="abstract">
+    <b>Abstract—</b>This document exists only to exercise the PDF reader of <i>dsh-paper-reader</i>:
+    it is a real, two-page, paper-style PDF with a selectable text layer, an outline, and
+    pages wide enough to show the available reading width. It mirrors the structure of a
+    typical control paper—problem statement, a continuous-time differential inclusion, four
+    convergence statements, and a numerical illustration—so that the reader panel can render
+    pages, scroll, zoom, remember the reading position and turn a selection into a question.
+    None of the claims below is a research result; the text is written to look like a paper,
+    not to report one.
+  </p>
+  <p class="keywords">
+    <b>Index Terms—</b>differential inclusion, nonsmooth convex optimization, resource allocation,
+    multi-agent networks, demo document, PDF text layer.
+  </p>
+
+  <h2>I. Introduction</h2>
+  <p>
+    Resource allocation over a multi-agent network asks a group of agents to split a shared
+    budget while each agent keeps its own objective and constraints private. A centralized
+    solution collects every local function at one node; a distributed one lets each agent
+    exchange only a few numbers with its neighbors. The second setting is attractive when the
+    network is large, when communication is expensive, or when the local data cannot leave
+    the agent that owns it.
+  </p>
+  <p>
+    Classical distributed schemes either project the state onto the feasible set at every
+    step or require the local objectives to be strongly convex. Both requirements are
+    restrictive in practice: projection needs a global description of the constraint set, and
+    strong convexity rules out piecewise-linear costs that appear in dispatch and scheduling.
+    The demo algorithm below avoids both by combining a network Laplacian with a time-varying
+    penalty whose weight grows without bound.
+  </p>
+  <p>
+    The reader may use this page to check the interactive features of the panel: select a
+    sentence and a floating bar should appear, click an outline entry on the left to jump to
+    the corresponding page, and watch the toolbar report the page and the zoom level. The
+    remainder of the document is filler with realistic typography and mathematics.
+  </p>
+
+  <div class="equation">
+    <span>f<sup>*</sup> = min<sub>x</sub> &nbsp;Σ<sub>i=1</sub><sup>n</sup> f<sub>i</sub>(x<sub>i</sub>)</span>
+    <span>&nbsp;subject to&nbsp;</span>
+    <span>Σ<sub>i=1</sub><sup>n</sup> x<sub>i</sub> = b, &nbsp; g<sub>i</sub>(x<sub>i</sub>) ≤ 0</span>
+    <span class="num">(1)</span>
+  </div>
+
+  <p>
+    Problem (1) couples the agents only through the equality constraint: the budget is shared,
+    while every inequality constraint is private. This structure is what makes a distributed
+    method possible at all, and it is also where most of the difficulty hides, because the
+    shared budget is a global object that no single agent can observe.
+  </p>
+</section>
+
+<section>
+  <p class="demo-note">DEMO DOCUMENT · PAGE 2 · ILLUSTRATIVE CONTENT</p>
+
+  <h2>II. Problem Formulation</h2>
+  <p>
+    Let the network be described by a connected undirected graph with Laplacian L. Agent i
+    owns a convex, possibly nonsmooth function f<sub>i</sub> and a convex constraint map
+    g<sub>i</sub>. We assume that Slater's condition holds locally and that the local feasible
+    sets are bounded, so that the KKT system of (1) has a solution with bounded multipliers.
+  </p>
+  <div class="equation">
+    <span>J(x) = Σ<sub>i</sub> Σ<sub>k</sub> max{0, g<sub>ik</sub>(x<sub>i</sub>)} ≥ 0</span>
+    <span class="num">(2)</span>
+  </div>
+
+  <h2>III. Continuous-Time Algorithm</h2>
+  <p>
+    The algorithm is a differential inclusion driven by the subdifferential of the penalized
+    objective, with the Laplacian acting as an implicit multiplier. The penalty weight grows
+    quadratically in time, which is the mechanism behind the finite-time feasibility statement
+    of Theorem 3.
+  </p>
+  <div class="equation">
+    <span>ẋ(t) ∈ −(L ⊗ I<sub>d</sub>) ( ∂f(x(t)) + (t+1)<sup>2</sup> ∂J(x(t)) )</span>
+    <span class="num">(3)</span>
+  </div>
+
+  <h2>IV. Convergence Statements</h2>
+  <p class="thm"><b>Theorem 1.</b> For every initial state on the resource-constraint set, the
+    inclusion admits a unique solution that stays on that set for all time.</p>
+  <p class="thm"><b>Theorem 2.</b> Every solution of (3) is bounded on the whole time axis.</p>
+  <p class="thm"><b>Theorem 3.</b> The inequality-constrained feasible set is reached in finite
+    time and is invariant afterwards.</p>
+  <p class="thm"><b>Theorem 4.</b> Every solution converges to an optimal point of (1).</p>
+
+  <h2>V. Numerical Illustration</h2>
+  <p>
+    Four agents, two coordinates per agent, and a budget vector b = (5, 20) are used in the
+    demo. The local costs mix an absolute value, a smooth rational term, a sum of two absolute
+    values and a log-sum-exp, so that the aggregate objective is nonsmooth and not strictly
+    convex. The trajectories settle near x<sub>1</sub> = (0.49, 0.49), x<sub>2</sub> = (4, 1),
+    x<sub>3</sub> = (4.9, 12) and x<sub>4</sub> = (0.41, 0.41). These numbers are illustrative
+    only.
+  </p>
+
+  <h2>References</h2>
+  <div class="refs">
+    <p>[1] Demo Author, “A differential inclusion for nonsmooth allocation,” <i>Demo Transactions
+      on Control</i>, vol. 1, no. 1, pp. 1–12, 2026. (Fictional.)</p>
+    <p>[2] Second Author and Third Author, “Time-varying penalties in distributed optimization,”
+      <i>Proceedings of the Demo Conference</i>, 2026. (Fictional.)</p>
+    <p>[3] Example Research Center, “Notes on PDF text layers,” technical note, 2026. (Fictional.)</p>
+    <p>[4] dsh-paper-reader contributors, “Reader panel documentation,” 2026. (This repository.)</p>
+  </div>
+</section>
+
+</body>
+</html>

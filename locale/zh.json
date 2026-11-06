@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "论文阅读器",
+    "description": "论文库与章节大纲、KaTeX 公式排版、中英对照翻译、选中原文直接向对话提问、`<论文>.notes.md` 笔记，以及供模型调用的 paper 工具。"
+  },
+  "ui": {
+    "panel": {
+      "title": "论文",
+      "subtitle": "论文库 · 大纲 · 公式 · 对照 · 笔记"
+    },
+    "library": {
+      "title": "论文库",
+      "root": "根目录",
+      "search": "筛选标题或路径",
+      "refresh": "重新扫描",
+      "empty": "这个根目录下没找到论文（.tex / .pdf）。",
+      "emptyHint": "点左上角「＋」添加论文目录，或把论文放进这些目录。",
+      "scanning": "扫描中…",
+      "sections": "{count} 节",
+      "pages": "{count} 页",
+      "tex": "TeX",
+      "pdf": "PDF",
+      "modified": "修改于 {time}",
+      "roots": {
+        "add": "添加论文目录",
+        "manage": "管理论文目录",
+        "title": "论文目录",
+        "hint": "论文库扫描这些目录下的 .tex / .pdf。改动即时保存，不需要手动改配置文件。",
+        "sourceCwd": "工作目录",
+        "sourceConfig": "配置默认",
+        "sourceUser": "手动添加",
+        "count": "{count} 篇",
+        "missing": "目录不存在",
+        "remove": "移除这个目录",
+        "fixed": "固定",
+        "addLabel": "添加目录",
+        "inputPlaceholder": "绝对路径，例如 E:\\论文",
+        "browse": "浏览…",
+        "cancel": "取消",
+        "confirm": "添加",
+        "emptyPath": "先输入或选择一个目录",
+        "added": "已添加 {path}",
+        "removed": "已移除 {path}",
+        "addFailed": "添加失败：{message}",
+        "removeFailed": "移除失败：{message}",
+        "pickUnavailable": "没有可用的目录选择器，请直接粘贴路径"
+      }
+    },
+    "reader": {
+      "placeholder": "从左侧选一篇论文",
+      "loading": "正在解析…",
+      "outline": "章节大纲",
+      "emptyOutline": "没有识别到章节",
+      "openInPreview": "在右侧预览中打开",
+      "copyPath": "复制路径",
+      "copied": "已复制",
+      "copyFailed": "复制失败",
+      "truncated": "内容过长，已截断；用 paper 工具按章节读取完整内容。",
+      "pdfNoText": "这个 PDF 没有可提取的文本层（扫描件）。请在右侧预览里看图，或换一个有文本层的版本。",
+      "pdfNoTool": "宿主没有可用的 pdftotext，无法提取 PDF 文本。请在右侧预览里阅读。",
+      "previewUnavailable": "当前宿主没有右侧预览服务",
+      "askUnavailable": "没有可用的对话会话，先在左侧打开或新建一个对话",
+      "bilingual": "中英对照",
+      "bilingualOff": "关闭对照",
+      "translating": "翻译中…",
+      "pdfPageMode": "页面阅读",
+      "pdfPageModeHint": "按原版页面渲染（pdf.js），适合人工阅读",
+      "pdfTextMode": "文本模式",
+      "pdfTextModeHint": "切回可搜索、可复制的文本视图",
+      "pdfLoading": "正在加载 PDF 页面…",
+      "pdfFailed": "PDF 渲染失败：{message}",
+      "pdfFailedHint": "如果提示 404 或模块加载失败，重启 DeepSeek Harness 让新的宿主路由生效；也可以点右上角 ↗ 用系统预览打开原文件。",
+      "pdfRetry": "重试",
+      "pdfPrev": "上一页",
+      "pdfNext": "下一页",
+      "pdfZoomIn": "放大",
+      "pdfZoomOut": "缩小",
+      "pdfFit": "适宽",
+      "pdfResetZoom": "恢复 100%",
+      "pdfPageLabel": "页码",
+      "pdfHint": "选中原文可直接解释 / 摘录",
+      "pdfNoBrowser": "当前环境无法渲染 PDF（需要浏览器的 Canvas 与 Worker）。"
+    },
+    "actions": {
+      "explain": "解释",
+      "critique": "质疑",
+      "review": "审稿视角",
+      "translate": "翻译",
+      "quote": "摘录",
+      "ask": "问 AI"
+    },
+    "ask": {
+      "explain": "解释这段原文：它在说什么，关键记号各指什么，用直白的中文讲清楚。",
+      "critique": "质疑这段原文：论证是否成立？有没有隐含假设、跳步或反例？如果有问题，指出具体是哪一句。",
+      "review": "以审稿人的视角看这段：它是否可能成为拒稿理由？给出可执行的修改建议，按优先级排序。",
+      "custom": "关于这段原文：",
+      "sent": "已发送到对话",
+      "failed": "发送失败：{message}",
+      "noSelection": "先选中一段原文"
+    },
+    "notes": {
+      "title": "笔记",
+      "empty": "还没有笔记。选中原文后点「摘录」，或让模型用 paper 工具记。",
+      "reading": "读取中…",
+      "add": "写笔记",
+      "placeholder": "补充你的理解、疑问或待办…",
+      "save": "保存",
+      "cancel": "取消",
+      "saved": "已写入 {path}",
+      "failed": "写入失败：{message}",
+      "count": "{count} 条",
+      "file": "文件"
+    },
+    "kinds": {
+      "quote": "摘录",
+      "insight": "理解",
+      "question": "疑问",
+      "review": "审稿"
+    },
+    "label": {
+      "page": "第 {page} 页",
+      "line": "第 {line} 行",
+      "section": "§{section}",
+      "loading": "加载中",
+      "retry": "重试",
+      "error": "出错了",
+      "close": "关闭"
+    },
+    "error": {
+      "rpc": "与宿主通信失败：{message}",
+      "unknown": "未知错误"
+    }
+  }
+}

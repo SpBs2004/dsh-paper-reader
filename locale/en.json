@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "title": "Paper Reader",
+    "description": "Paper library with section outline, KaTeX math rendering, bilingual translation, ask-the-agent about a selection, per-paper `<paper>.notes.md` notes, and a `paper` tool for the model."
+  },
+  "ui": {
+    "panel": {
+      "title": "Papers",
+      "subtitle": "Library · outline · math · translation · notes"
+    },
+    "library": {
+      "title": "Library",
+      "root": "Root",
+      "search": "Filter title or path",
+      "refresh": "Rescan",
+      "empty": "No papers (.tex / .pdf) under this root.",
+      "emptyHint": "Use the ＋ button to add a paper directory, or put papers in one of these.",
+      "scanning": "Scanning…",
+      "sections": "{count} sections",
+      "pages": "{count} pages",
+      "tex": "TeX",
+      "pdf": "PDF",
+      "modified": "modified {time}",
+      "roots": {
+        "add": "Add paper directory",
+        "manage": "Manage paper directories",
+        "title": "Paper directories",
+        "hint": "The library scans these directories for .tex / .pdf files. Changes are saved immediately; no config file editing needed.",
+        "sourceCwd": "Working directory",
+        "sourceConfig": "Configured",
+        "sourceUser": "Added",
+        "count": "{count} papers",
+        "missing": "Directory missing",
+        "remove": "Remove this directory",
+        "fixed": "Fixed",
+        "addLabel": "Add directory",
+        "inputPlaceholder": "Absolute path, e.g. E:\\papers",
+        "browse": "Browse…",
+        "cancel": "Cancel",
+        "confirm": "Add",
+        "emptyPath": "Enter or pick a directory first",
+        "added": "Added {path}",
+        "removed": "Removed {path}",
+        "addFailed": "Add failed: {message}",
+        "removeFailed": "Remove failed: {message}",
+        "pickUnavailable": "No directory picker available; paste the path instead"
+      }
+    },
+    "reader": {
+      "placeholder": "Pick a paper on the left",
+      "loading": "Parsing…",
+      "outline": "Outline",
+      "emptyOutline": "No sections recognized",
+      "openInPreview": "Open in right preview",
+      "copyPath": "Copy path",
+      "copied": "Copied",
+      "copyFailed": "Copy failed",
+      "truncated": "Content truncated; use the paper tool to read full sections.",
+      "pdfNoText": "This PDF has no extractable text layer (scan). Read the pages in the right preview, or use a text-based copy.",
+      "pdfNoTool": "No pdftotext available on the host, so PDF text cannot be extracted. Read it in the right preview.",
+      "previewUnavailable": "The right preview service is unavailable on this host",
+      "askUnavailable": "No conversation session available; open or create one first",
+      "bilingual": "Bilingual",
+      "bilingualOff": "Hide translation",
+      "translating": "Translating…",
+      "pdfPageMode": "Pages",
+      "pdfPageModeHint": "Render the original pages with pdf.js for comfortable reading",
+      "pdfTextMode": "Text mode",
+      "pdfTextModeHint": "Switch back to the searchable, copyable text view",
+      "pdfLoading": "Loading PDF pages…",
+      "pdfFailed": "PDF rendering failed: {message}",
+      "pdfFailedHint": "If you see a 404 or module load error, restart DeepSeek Harness so the new host routes take effect; you can also open the original file with ↗ in the header.",
+      "pdfRetry": "Retry",
+      "pdfPrev": "Previous page",
+      "pdfNext": "Next page",
+      "pdfZoomIn": "Zoom in",
+      "pdfZoomOut": "Zoom out",
+      "pdfFit": "Fit width",
+      "pdfResetZoom": "Reset to 100%",
+      "pdfPageLabel": "Page number",
+      "pdfHint": "Select text to explain or quote it",
+      "pdfNoBrowser": "PDF rendering is unavailable in this environment (browser Canvas and Worker required)."
+    },
+    "actions": {
+      "explain": "Explain",
+      "critique": "Challenge",
+      "review": "Reviewer view",
+      "translate": "Translate",
+      "quote": "Quote",
+      "ask": "Ask AI"
+    },
+    "ask": {
+      "explain": "Explain this passage: what it says, what each symbol means, in plain language.",
+      "critique": "Challenge this passage: is the argument valid? Any hidden assumptions, gaps, or counterexamples? Point at the exact sentence.",
+      "review": "Read this passage as a reviewer: could it be a rejection reason? Give concrete, prioritized fixes.",
+      "custom": "About this passage:",
+      "sent": "Sent to the conversation",
+      "failed": "Send failed: {message}",
+      "noSelection": "Select a passage first"
+    },
+    "notes": {
+      "title": "Notes",
+      "empty": "No notes yet. Select text and press Quote, or let the model write them with the paper tool.",
+      "reading": "Reading…",
+      "add": "Write a note",
+      "placeholder": "Your reading, questions, or to-dos…",
+      "save": "Save",
+      "cancel": "Cancel",
+      "saved": "Written to {path}",
+      "failed": "Write failed: {message}",
+      "count": "{count} entries",
+      "file": "File"
+    },
+    "kinds": {
+      "quote": "Quote",
+      "insight": "Insight",
+      "question": "Question",
+      "review": "Review"
+    },
+    "label": {
+      "page": "page {page}",
+      "line": "line {line}",
+      "section": "§{section}",
+      "loading": "Loading",
+      "retry": "Retry",
+      "error": "Error",
+      "close": "Close"
+    },
+    "error": {
+      "rpc": "Host communication failed: {message}",
+      "unknown": "Unknown error"
+    }
+  }
+}

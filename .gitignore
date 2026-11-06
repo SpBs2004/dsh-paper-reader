@@ -1,0 +1,13 @@
+# 依赖与本地环境
+node_modules/
+*.log
+npm-debug.log*
+
+# 系统杂物
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 临时文件
+*.tmp
+docs/*.tmp.png
